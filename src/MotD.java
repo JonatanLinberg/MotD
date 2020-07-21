@@ -14,7 +14,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class MotD extends JavaPlugin implements Listener, CommandExecutor {
 	
-	private final String chatPrefix = ChatColor.AQUA + (ChatColor.BOLD + "[MotD] - " + ChatColor.RESET);
+	private final String chatPrefix = "" + ChatColor.AQUA + ChatColor.BOLD + "[" + ChatColor.RESET + "MotD" + ChatColor.AQUA + ChatColor.BOLD +  "] - " + ChatColor.RESET;
 	private FileConfiguration config = getConfig();
 	private Logger log = getLogger();
 	
@@ -50,8 +50,8 @@ public class MotD extends JavaPlugin implements Listener, CommandExecutor {
 		if (args.length > 0) {
 			if (args[0].equals("set")) {
 				String motd = "";
-				for (int i = 0; i < args.length; i++) {
-					if (i > 0)
+				for (int i = 1; i < args.length; i++) {
+					if (i > 1)
 						motd += ' ';
 					motd += args[i];
 				}
@@ -59,11 +59,11 @@ public class MotD extends JavaPlugin implements Listener, CommandExecutor {
 				sender.sendMessage(chatPrefix + "");
 				log.info("MotD set to: " + config.getString("motd"));
 				return true;
-			} else if (args[0].equals("get")) {
-				sender.sendMessage(chatPrefix + config.getString("motd"));
-				return true;
+			} else if (!args[0].equals("get")) {
+				return false;
 			}
 		}
-    	return false;
+		sender.sendMessage(chatPrefix + config.getString("motd"));
+    	return true;
     }
 }
