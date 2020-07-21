@@ -37,7 +37,7 @@ public class MotD extends JavaPlugin implements Listener, CommandExecutor {
 	// Fired when plugin is disabled
     @Override
     public void onDisable() {
-    	this.saveConfig();
+    	
     }
     
     @EventHandler
