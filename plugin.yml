@@ -1,0 +1,13 @@
+name: MotD
+main: MotD
+version: 0.0.1
+api-version: 1.16
+commands:
+   MotD:
+      description: Set the server MotD
+      usage: /<command> [MotD]
+      permission: MotD.set
+permissions:
+  MotD.set:
+    description: Allowed to set and change the MotD
+    default: op
