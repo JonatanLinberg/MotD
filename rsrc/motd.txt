@@ -1,1 +1,0 @@
-This is the default MotD, you can change this using the "/motd [MotD]" command as a server operator.
