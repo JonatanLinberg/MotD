@@ -3,7 +3,7 @@ main: MotD
 version: 0.0.1
 api-version: 1.16
 commands:
-   MotD:
+   motd:
       description: Set the server MotD
       usage: /<command> [MotD]
       permission: MotD.set
