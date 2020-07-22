@@ -56,8 +56,11 @@ public class MotD extends JavaPlugin implements Listener, CommandExecutor {
 					motd += args[i];
 				}
 				config.set("motd", motd);
-				sender.sendMessage(chatPrefix + "");
-				log.info("MotD set to: " + config.getString("motd"));
+				saveConfig();
+				
+				String msg = "MotD set to: " + config.getString("motd");
+				sender.sendMessage(chatPrefix + msg);
+				log.info(msg);
 				return true;
 			} else if (!args[0].equals("get")) {
 				return false;
